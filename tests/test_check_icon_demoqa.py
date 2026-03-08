@@ -3,7 +3,7 @@ from selenium.webdriver.common.by import By
 
 def test_check_icon_demoqa(browser):
     # driver = webdriver.Chrome() # вынесено в общий файл
-    browser.get('https://demoqa.com/')
+    browser.get('https://demoqa.com')
 
     icon = browser.find_elements(By.CSS_SELECTOR, '#app > header > a')
 
