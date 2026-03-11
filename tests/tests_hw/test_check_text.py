@@ -12,8 +12,8 @@
 
 from pages.demoqa import DemoQa
 import time
-
 from pages.elements_page import ElementPage
+
 
 
 def test_check_text_footer(browser):
@@ -38,3 +38,19 @@ def test_check_center_pos(browser):
     text_pos_center = element_page.get_center_text()
 
     assert text_pos_center == "Please select an item from left to start practice."
+
+def test_page_elements(browser):
+    el_page = ElementPage(browser)
+    el_page.visit()
+    time.sleep(2)
+
+    assert el_page.text_elements.get_text() == "Please select an item from left to start practice."
+
+def test_page_elements_text(browser):
+    el_page = ElementPage(browser)
+    el_page.visit()
+    time.sleep(2)
+
+    assert el_page.icon.find_element()
+    assert el_page.btn_sidebar_first.find_element()
+    assert el_page.btn_sidebar_first_textbox.find_element()

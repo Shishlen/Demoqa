@@ -16,3 +16,15 @@ class BasePage:
 
     def get_url(self):
         return self.driver.current_url
+
+    def back(self):
+        return self.driver.back()
+
+    def forward(self):
+        return self.driver.forward()
+
+    def refresh(self):
+        return self.driver.refresh()
+
+    def get_title(self):
+        return self.driver.title
