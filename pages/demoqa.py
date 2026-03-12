@@ -17,6 +17,9 @@ class DemoQa(BasePage):
     def click_on_the_icon(self):
         self.find_element(locator='header a').click()
 
+    def btn_elements(self):
+        self.find_element(locator='#root > div > div > div.home-body > div > a:nth-child(1) > div').click()
+
     def click_on_the_btn(self):
         self.find_element(locator='div div div.home-body div div:nth-child(1)').click()
 

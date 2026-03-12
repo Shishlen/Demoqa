@@ -12,6 +12,7 @@ class ElementPage(BasePage):
         self.btn_sidebar_first = WebElement(driver, 'div:nth-child(1) > span > div')
         self.btn_sidebar_first_textbox = WebElement(driver, '#item-0 > a > span')
         self.btn_sidebar_first_checkbox = WebElement(driver, '#item-1 > a > span')
+        self.btns_first_menu = WebElement(driver, 'div:nth-child(1) > div > ul > li')
 
     def get_center_text(self):
         return str(self.find_element('div.col-md-6').text)
