@@ -18,4 +18,6 @@ class FormPage(BasePage):
         self.btn_submit = WebElement(driver, '#submit')
         self.modal_dialog = WebElement(driver, 'body > div.fade.modal.show > div > div > div.modal-body')
         self.modal_dialog_close = WebElement(driver,'#closeLargeModal')
+        self.btn_state = WebElement(driver, '#react-select-3-input')
+        self.btn_city = WebElement(driver, '#react-select-4-input')
 

@@ -6,4 +6,4 @@ def test_placeholder(browser):
 
     box_page.visit()
     time.sleep(2)
-    assert box_page.full_name.get_attribute("placeholder") == 'Full Name'
+    assert box_page.full_name.get_dom_attribute("placeholder") == 'Full Name'

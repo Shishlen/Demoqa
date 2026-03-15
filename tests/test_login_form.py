@@ -1,4 +1,7 @@
 import time
+
+from selenium.webdriver.common.keys import Keys
+
 from pages.form_page import FormPage
 
 def test_login_form(browser):
@@ -19,3 +22,19 @@ def test_login_form(browser):
 
     assert form_page.modal_dialog.exist()
     form_page.modal_dialog_close.click()
+
+def test_insert_values(browser):
+    text_1 = "NCR"
+    text_2 = "Noida"
+
+    form_page = FormPage(browser)
+
+    form_page.visit()
+    form_page.btn_state.click()
+    form_page.btn_state.send_keys(text_1)
+    time.sleep(1)
+    form_page.btn_state.send_keys(Keys.ENTER)
+    form_page.btn_city.click()
+    form_page.btn_city.send_keys(text_2)
+    time.sleep(1)
+    form_page.btn_city.send_keys(Keys.ENTER)
