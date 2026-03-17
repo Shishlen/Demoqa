@@ -9,5 +9,5 @@ def test_text_box_submit(browser):
 
     assert text_box.btn_submit.check_css('color', 'rgba(255, 255, 255, 1)')
 
-    assert text_box.btn_submit.check_css('backgroundColor', 'rgba(10, 88, 202, 1)')
-    assert text_box.btn_submit.check_css('borderColor', 'rgb(10, 83, 190)')
+    assert text_box.btn_submit.check_css('background-color', 'rgba(13, 110, 253, 1)')
+    assert text_box.btn_submit.check_css('border-color', 'rgb(13, 110, 253)')
