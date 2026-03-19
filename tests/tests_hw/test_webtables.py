@@ -22,7 +22,7 @@ def test_webtables_form(browser):
     assert 'a.saint@example.com' in web_tables.table_first_name.get_text()
 
     time.sleep(1)
-    web_tables.btn_edit.click()
+    web_tables.btn_edit.click_force()
     assert web_tables.modal_registration.exist()
     time.sleep(1)
 
@@ -33,7 +33,7 @@ def test_webtables_form(browser):
     assert 'a.saint@example.com' in web_tables.table_first_name.get_text()
     time.sleep(1)
 
-    web_tables.btn_delete.click()
+    web_tables.btn_delete.click_force()
 
     time.sleep(1)
     elements = browser.find_elements("xpath", "//div[text()='William']")

@@ -11,6 +11,9 @@ class WebTables(BasePage):
         self.btn_submit = WebElement(driver, '#submit')
         self.btn_edit = WebElement(driver, 'edit-record-4', 'id')
         self.btn_delete = WebElement(driver, '//*[@id="delete-record-4"]', 'xpath')
+        self.btn_next = WebElement(driver, "//button[text()='Next']", 'xpath')
+        self.btn_previous = WebElement(driver, "//button[text()='Previous']", 'xpath')
+        self.page_info = WebElement(driver, "//span[@class='-totalPages']")
 
         # Поля ввода
         self.first_name = WebElement(driver, '#firstName')
@@ -23,5 +26,7 @@ class WebTables(BasePage):
         # Окна
         self.modal_dialog = WebElement(driver, 'body > div.fade.modal.show > div > div')
         self.modal_registration = WebElement(driver, 'body > div.fade.modal.show > div > div')
-
-        self.table_first_name = WebElement(driver, '#root > div > div > div > div.col-12.mt-4.col-md-6.col-xl-7 > div.container-fluid > div.web-tables-wrapper > table > tbody > tr:nth-child(4)')
+        self.table_first_name = WebElement(driver, '#root > div > div > div > div.col-12.mt-4.col-md-6.col-xl-7 >'
+                                                   ' div.container-fluid > div.web-tables-wrapper > table > '
+                                                   'tbody > tr:nth-child(4)')
+        self.page_info = WebElement(driver, "//div[contains(text(),'Page')]/strong", "xpath")
