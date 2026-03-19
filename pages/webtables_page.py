@@ -7,20 +7,21 @@ class WebTables(BasePage):
         super().__init__(driver, self.base_url)
 
         # Кнопки
-        self.btn_submit = WebElement(driver, '#submit')
         self.btn_add = WebElement(driver, '#addNewRecordButton')
-        self.btn_edit = WebElement(driver, '#edit-record-4')
-        self.btn_delete = WebElement(driver, '#delete-record-4 > svg > path')
+        self.btn_submit = WebElement(driver, '#submit')
+        self.btn_edit = WebElement(driver, 'edit-record-4', 'id')
+        self.btn_delete = WebElement(driver, '//*[@id="delete-record-4"]', 'xpath')
 
         # Поля ввода
-        self.first_name_area = WebElement(driver, '#firstName')
-        self.last_name_area = WebElement(driver, '#lastName')
-        self.email_area = WebElement(driver, '#userEmail')
-        self.age_area = WebElement(driver, '#age')
-        self.salary_area = WebElement(driver, '#salary')
-        self.department_area = WebElement(driver, '#department')
+        self.first_name = WebElement(driver, '#firstName')
+        self.last_name = WebElement(driver, '#lastName')
+        self.email = WebElement(driver, '#userEmail')
+        self.age = WebElement(driver, '#age')
+        self.salary = WebElement(driver, '#salary')
+        self.department = WebElement(driver, '#department')
 
-        # Локатор строк
-        self.table = WebElement(driver, "#root > div > div > div > div.col-12.mt-4.col-md-6.col-xl-7 > div.container-fluid > div.web-tables-wrapper > table > tbody")
+        # Окна
+        self.modal_dialog = WebElement(driver, 'body > div.fade.modal.show > div > div')
+        self.modal_registration = WebElement(driver, 'body > div.fade.modal.show > div > div')
 
-
+        self.table_first_name = WebElement(driver, '#root > div > div > div > div.col-12.mt-4.col-md-6.col-xl-7 > div.container-fluid > div.web-tables-wrapper > table > tbody > tr:nth-child(4)')

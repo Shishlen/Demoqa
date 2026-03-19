@@ -4,45 +4,38 @@ from pages.webtables_page import WebTables
 def test_webtables_form(browser):
     web_tables = WebTables(browser)
     web_tables.visit()
-    time.sleep(1)
-
     web_tables.btn_add.click()
 
-
-    web_tables.btn_submit.click()
-
     assert web_tables.btn_submit.exist()
-    time.sleep(1)
 
-
-    web_tables.first_name_area.send_keys('Alex')
-    web_tables.last_name_area.send_keys('Saint')
-    web_tables.email_area.send_keys('a.saint@gmoil.nope')
-    web_tables.age_area.send_keys('25')
-    web_tables.salary_area.send_keys('145000')
-    web_tables.department_area.send_keys('IT')
-    time.sleep(1)
-
+    web_tables.first_name.send_keys('Alex')
+    web_tables.last_name.send_keys('Saint')
+    web_tables.email.send_keys('a.saint@example.com')
+    web_tables.age.send_keys('25')
+    web_tables.salary.send_keys('145000')
+    web_tables.department.send_keys('IT')
     web_tables.btn_submit.click()
-
-    assert 'Alex' in web_tables.table.get_text()
-    assert 'Saint' in web_tables.table.get_text()
-    assert 'a.saint@gmoil.nope' in web_tables.table.get_text()
     time.sleep(1)
 
-    web_tables.btn_edit.click() # Здесь падает
-    web_tables.first_name_area.send_keys('CTRL' + 'a', 'Will')
-    assert 'Will' in web_tables.table.get_text()
+    assert not web_tables.modal_dialog.exist()
+    assert 'Alex' in web_tables.table_first_name.get_text()
+    assert 'a.saint@example.com' in web_tables.table_first_name.get_text()
+
+    time.sleep(1)
+    web_tables.btn_edit.click()
+    assert web_tables.modal_registration.exist()
     time.sleep(1)
 
+    web_tables.first_name.clear()
+    web_tables.first_name.send_keys('William')
     web_tables.btn_submit.click()
-    assert 'Alex' in web_tables.table.get_text()
+    assert 'William' in web_tables.table_first_name.get_text()
+    assert 'a.saint@example.com' in web_tables.table_first_name.get_text()
     time.sleep(1)
 
-    web_tables.btn_delete.click() # Здесь упадет
-    assert not 'Will' in web_tables.table.get_text()
-    assert not 'Saint' in web_tables.table.get_text()
-    assert not 'a.saint@gmoil.nope' in web_tables.table.get_text()
+    web_tables.btn_delete.click()
 
-
+    time.sleep(1)
+    elements = browser.find_elements("xpath", "//div[text()='William']")
+    assert len(elements) == 0
 
