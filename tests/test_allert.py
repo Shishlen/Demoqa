@@ -28,7 +28,18 @@ def test_confirm(browser):
     alert_confirm.visit()
     alert_confirm.confirm_button.click()
     time.sleep(2)
-    alert_confirm.confirm_button.dismiss()
+    alert_confirm.alert().dismiss()
 
-    assert alert_confirm.alert().text == "You selected Cancel"
+    assert alert_confirm.confirm_result.get_text() == "You selected Cancel"
 
+def test_alert_prompt(browser):
+    alert_prompt = AlertPage(browser)
+    text_1 = 'Nicole'
+
+    alert_prompt.visit()
+    alert_prompt.prompt_button.click()
+    time.sleep(2)
+    alert_prompt.alert().send_keys(text_1)
+    alert_prompt.alert().accept()
+
+    assert alert_prompt.prompt_result.get_text() == f'You entered {text_1}'
