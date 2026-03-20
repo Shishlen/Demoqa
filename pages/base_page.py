@@ -1,3 +1,5 @@
+from _pytest import logging
+from selenium.common import NoAlertPresentException
 from selenium.webdriver.common.by import By
 import time
 
@@ -28,3 +30,10 @@ class BasePage:
 
     def get_title(self):
         return self.driver.title
+
+    def alert(self):
+        try:
+            return self.driver.switch_to.alert
+        except Exception as ex:
+            logging.log(1, ex)
+            return False
