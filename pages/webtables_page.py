@@ -30,3 +30,5 @@ class WebTables(BasePage):
                                                    ' div.container-fluid > div.web-tables-wrapper > table > '
                                                    'tbody > tr:nth-child(4)')
         self.page_info = WebElement(driver, "//div[contains(text(),'Page')]/strong", "xpath")
+
+        self.headers = WebElement(driver, '.rt-th')

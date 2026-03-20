@@ -1,5 +1,4 @@
 from _pytest import logging
-from selenium.common import NoAlertPresentException
 from selenium.webdriver.common.by import By
 import time
 
